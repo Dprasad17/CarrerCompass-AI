@@ -112,10 +112,4 @@ streamlit run app.py
 
 ---
 
-## 🎯 Recruiter & Professional Highlights
 
-- **Production-grade Caching**: Features resource/data caching (`@st.cache_resource` / `@st.cache_data`) for heavy NLP models and web services, ensuring sub-second UI hot-reloads and transitions.
-- **Clean DB Schema**: Normalization structure with foreign keys, check constraints, and thread-safe SQLite connection manager pooling.
-- **High-Performance Multi-Threading**: Offloads heavy model loads on startup onto background daemon threads, avoiding blank startup screens.
-- **Geocoding Thread safety**: Features a thread-safe geocoder caching helper to prevent UI lag on search location updates.
-- **Modern Responsive Design System**: Completely custom-styled UI (`assets/css/custom.css`) for premium dark-mode visuals, typography overrides, and custom UI components.
