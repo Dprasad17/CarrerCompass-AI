@@ -187,13 +187,14 @@ def render_analysis_results(
         render_html(f"""
         <div class='saas-card'>
             <h3 style='margin-top:0; color:#F8FAFC;'>👤 Parsed Contact Header</h3>
-            <div style='display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;'>
+            <div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:10px; margin-top:10px; word-break: break-all;'>
                 <div>📧 <b>Email:</b> {email or 'Not found'}</div>
                 <div>📞 <b>Phone:</b> {phone or 'Not found'}</div>
                 <div>🐙 <b>GitHub:</b> {github or 'Not found'}</div>
                 <div>🎯 <b>Target Match:</b> {target_role if target_role else 'General Audit'}</div>
             </div>
         </div>
+
         """)
         
         if has_jd:
