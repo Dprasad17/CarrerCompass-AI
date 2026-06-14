@@ -13,11 +13,20 @@ class DatabaseConnectionManager:
     """
     def __init__(self, db_path: str) -> None:
         self.db_path = db_path
+        import os
+        if not os.path.exists(db_path) or os.path.getsize(db_path) == 0:
+            logger.info("Database file not found or empty. Auto-initializing schema...")
+            try:
+                from database.init_db import init_database
+                init_database()
+            except Exception as e:
+                logger.error(f"Failed to auto-initialize database schema: {e}")
 
     @contextmanager
     def get_connection(self) -> Generator[sqlite3.Connection, None, None]:
         conn = None
         try:
+
             # Connect to the SQLite database file
             conn = sqlite3.connect(self.db_path, check_same_thread=False)
             cursor = conn.cursor()
